@@ -2,17 +2,17 @@ const authController = require('express').Router();
 
 const { parseError } = require('../util/parser');
 const { register, login } = require('../services/userService');
-const { isGuest } = require('../middlewares/guards');
 
 
 
-authController.get('/register', isGuest(), (req, res) => {
+
+authController.get('/register', (req, res) => {
     res.render('register', {
         title: 'Register Page'
     });
 });
 
-authController.post('/register', isGuest(), async (req, res) => {
+authController.post('/register', async (req, res) => {
   
     try {
         if (!req.body.email || !req.body.firstname || !req.body.lastname || !req.body.password) {
@@ -44,13 +44,13 @@ authController.post('/register', isGuest(), async (req, res) => {
     }
 });
 
-authController.get('/login', isGuest(), (req, res) => {
+authController.get('/login', (req, res) => {
     res.render('login', {
         title: 'Login Page'
     });
 });
 
-authController.post('/login', isGuest(), async (req, res) => {
+authController.post('/login', async (req, res) => {
     try {
         const token = await login(req.body.email, req.body.password);
 

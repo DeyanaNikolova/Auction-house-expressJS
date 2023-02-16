@@ -6,10 +6,10 @@ const { parseError } = require('../util/parser');
 
 
 
+
 auctionsController.get('/browse', async (req, res) => {
     try{
         const auctions = await getAll();
-        console.log(auctions);
         res.render('browse', {
             title: 'Auctions',
             auctions
