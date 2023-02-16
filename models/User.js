@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-// TODO: add user properties and validations according to assignment
+
 const userSchema = new Schema({
     email: {
         type:String,
