@@ -29,7 +29,7 @@ const auctionSchema = new Schema({
     author: {
         type: Types.ObjectId,
         ref: 'User',
-        required: true
+        required: true,
     },
     bidder: {
         type: Types.ObjectId,

@@ -1,7 +1,7 @@
 const auctionsController = require('express').Router();
 
 const { hasUser } = require('../middlewares/guards');
-const { getAll, publish } = require('../services/auctionsService');
+const { getAll, publish, getById } = require('../services/auctionsService');
 const { parseError } = require('../util/parser');
 
 
@@ -23,10 +23,22 @@ auctionsController.get('/browse', async (req, res) => {
 
 
 auctionsController.get('/details/:id', async (req, res) => {
-
-    res.render('details', {
-        title: 'Auction Details'
-    })
+    let view;
+    const auction = await getById(req.params.id);
+    const isOwner = auction.author.toString().includes(req.user?._id);
+   const isUser = req.user;
+    if(isOwner){
+        view = 'details-owner';
+    }else {
+        view = 'details'
+    }
+    res.render(view, {
+        title: 'Auction Details',
+        auction,
+        isOwner,
+        isUser,
+        user: req.user
+    });
 });
 
 

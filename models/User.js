@@ -4,7 +4,7 @@ const { Schema, model } = require('mongoose');
 const userSchema = new Schema({
     email: {
         type:String,
-        requred: true,
+        requried: true,
         validate: /^[a-zA-z0-9]+@[a-zA-z]+.[a-zA-z]+/i
     },
     hashedPassword: {
