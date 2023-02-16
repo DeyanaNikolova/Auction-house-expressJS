@@ -6,4 +6,6 @@ auctionsController.get('/browse', async (req, res) => {
     });
 });
 
+
+
 module.exports = auctionsController;
