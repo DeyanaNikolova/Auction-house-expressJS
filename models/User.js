@@ -11,12 +11,12 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    firstName: {
+    firstname: {
         type: String,
         required: true,
         minLength: [1, 'First name must be at least 1 character long!']
     },
-    lastName:{
+    lastname:{
         type:String,
         required: true,
         minLength: [1, 'Last name must be at least 1 character long!']
