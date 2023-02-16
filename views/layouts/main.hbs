@@ -22,8 +22,10 @@
                     <li>
                         <a href="/auction/browse">Browse</a>
                     </li>
-                    <!-- User actions -->
+
+                    {{#if isAutenticated}} <!-- User actions -->
                     <li class="user">
+
                         <a href="/auction/publish">Publish</a>
                     </li>
 
@@ -37,6 +39,7 @@
                     <li class="user">
                         <a href="/auth/logout">Logout</a>
                     </li>
+                    {{else}}
                     <!-- Guest actions -->
                     <li class="guest">
                         <a href="/auth/register">Register</a>
@@ -44,18 +47,19 @@
                     <li class="guest">
                         <a href="/auth/login">Login</a>
                     </li>
+                    {{/if}}
                 </ul>
             </nav>
         </header>
 
-   <!-- In case of error, display the following div-->
-            {{#if errors}}
-            <div class="error-box">
-                {{#each errors}}
-                <p>{{this}}</p>
-                {{/each}}
-            </div>
-            {{/if}}
+        <!-- In case of error, display the following div-->
+        {{#if errors}}
+        <div class="error-box">
+            {{#each errors}}
+            <p>{{this}}</p>
+            {{/each}}
+        </div>
+        {{/if}}
 
         <main>
             {{{body}}}

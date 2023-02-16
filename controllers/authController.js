@@ -1,9 +1,9 @@
-const { body, validationResult }  = require('express-validator');
+const authController = require('express').Router();
+
 const { parseError } = require('../util/parser');
 const { register, login } = require('../services/userService');
 const { isGuest } = require('../middlewares/guards');
 
-const authController = require('express').Router();
 
 
 authController.get('/register', isGuest(), (req, res) => {
@@ -41,7 +41,6 @@ authController.post('/register', isGuest(), async (req, res) => {
                 lastname: req.body.lastname,        
             }
         });
-        console.log(errors);
     }
 });
 

@@ -3,7 +3,7 @@ const { Schema, model, Types } = require('mongoose');
 const auctionSchema = new Schema({
     title: {
         type: String,
-        required:true,
+        required: true,
         minLength: [4, 'Title must be at least 4 characters long!'],
     },
     description: {
@@ -12,7 +12,7 @@ const auctionSchema = new Schema({
     },
     category: {
         type: String,
-        required:true, 
+        required: true,
         enum: {
             values: ['Vehicles', 'Real Estate', 'Electronics', 'Furniture', 'Other'],
             message: 'Invalid category!'

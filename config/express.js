@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const session = require('../middlewares/session');
 const trimBody = require('../middlewares/trimBody');
 
+
 module.exports = (app) => {
     const hbs = handlebars.create({
         extname: '.hbs'
